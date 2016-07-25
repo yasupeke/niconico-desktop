@@ -1,0 +1,19 @@
+# Node Modules
+node_modules/
+
+# d.ts
+typings/
+
+# Sass Cache
+.sass-cache/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Mac crap
+.DS_Store
+
+# Output Files
+dist/
+package/

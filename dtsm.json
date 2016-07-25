@@ -1,0 +1,46 @@
+{
+  "repos": [
+    {
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "ref": "master"
+    }
+  ],
+  "path": "typings",
+  "bundle": "typings/bundle.d.ts",
+  "link": {
+    "npm": {
+      "include": true
+    }
+  },
+  "dependencies": {
+    "material-ui/material-ui.d.ts": {
+      "ref": "91d45c49a3b5cd6a0abbf5f319c1406fd4f2b1e7"
+    },
+    "react/react.d.ts": {
+      "ref": "91d45c49a3b5cd6a0abbf5f319c1406fd4f2b1e7"
+    },
+    "react/react-dom.d.ts": {
+      "ref": "91d45c49a3b5cd6a0abbf5f319c1406fd4f2b1e7"
+    },
+    "react-tap-event-plugin/react-tap-event-plugin.d.ts": {
+      "ref": "91d45c49a3b5cd6a0abbf5f319c1406fd4f2b1e7"
+    },
+    "socket.io/socket.io.d.ts": {
+      "ref": "91d45c49a3b5cd6a0abbf5f319c1406fd4f2b1e7"
+    },
+    "socket.io-client/socket.io-client.d.ts": {
+      "ref": "91d45c49a3b5cd6a0abbf5f319c1406fd4f2b1e7"
+    },
+    "github-electron/github-electron.d.ts": {
+      "ref": "91d45c49a3b5cd6a0abbf5f319c1406fd4f2b1e7"
+    },
+    "createjs/createjs.d.ts": {
+      "ref": "91d45c49a3b5cd6a0abbf5f319c1406fd4f2b1e7"
+    },
+    "niconico-desktop/niconico-desktop.d.ts": {
+      "repo": "https://gist.github.com/yasupeke/2e4c993841f435fa2f510955f557a4f3",
+      "ref": "cdaff0c47fc721f42c4acd98397fa855be37f5c5",
+      "path": "niconico-desktop.d.ts"
+    }
+  }
+}
