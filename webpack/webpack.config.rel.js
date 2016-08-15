@@ -8,7 +8,7 @@ module.exports = {
     },
     target: "node",
     resolve: {
-        extensions: ['', '.tsx', '.ts', '.js']
+        extensions: ['', '.tsx', '.ts', '.webpack.js', '.web.js', '.js']
     },
     output: {
         path: path.join(__dirname, '..', 'dist', 'views'),
@@ -16,7 +16,10 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\.ts(x?)$/, loader: 'ts-loader' }
+            {
+                exclude: /(node_modules)/,
+                loaders: ["babel", "ts"]
+            }
         ]
     },
     plugins: [

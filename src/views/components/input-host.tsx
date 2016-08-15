@@ -4,13 +4,14 @@ import { FontIcon } from 'material-ui/FontIcon';
 
 export interface IProps extends React.Props<{}> {
     status: NicoNicoDesktop.RoomStatus;
-    onJoin(roomId: string): void;
-    onLeave(): void;
+    websocketServerHost: string;
+    onChangeHost(websocketServerHost: string): void;
 }
 
 
 interface IState {
-    roomId?: string;
+    websocketServerHost?: string;
+    disabled?: boolean;
 }
 
 const wrapperStyles = {
@@ -21,51 +22,44 @@ const textStyles = {
     marginRight: '8px'
 };
 
-export default class InputHost extends React.Component<IProps, IState> {
+export default class InputComment extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         this.state = {
-            roomId: ''
+            websocketServerHost: props.websocketServerHost || '',
+            disabled: this.props.status === NicoNicoDesktop.RoomStatus.Login
         };
     }
 
     private handleUpdate(): void {
-        const text = this.refs['roomId'] as TextField;
-        const roomId = text.getValue();
-        this.setState({ roomId });
+        const text = this.refs['host'] as TextField;
+        const websocketServerHost = text.getValue();
+        this.setState({ websocketServerHost });
     }
 
     private handleTap(): void {
-        if(this.props.status === NicoNicoDesktop.RoomStatus.Login) {
-            this.props.onLeave();
-        }else {
-            if(this.state.roomId.length === 0) {
-                return;
-            }
-            this.props.onJoin(this.state.roomId);
-        }
+        this.props.onChangeHost(this.state.websocketServerHost);
     }
 
     public render(): React.ReactElement<void> {
-        let btnLabel = 'Leave';
         let inputDisabled = true;
         if(this.props.status === NicoNicoDesktop.RoomStatus.Logout) {
-            btnLabel = 'Join';
             inputDisabled = false;
         }
         return (
             <div style={wrapperStyles}>
                 <TextField
-                    ref="roomId"
-                    floatingLabelText="Room ID"
-                    value={this.state.roomId}
+                    ref="host"
+                    floatingLabelText="Websocket Server Host"
+                    value={this.state.websocketServerHost}
                     disabled={inputDisabled}
                     onChange={this.handleUpdate.bind(this)}
                     style={textStyles}
                 />
                 <RaisedButton 
-                    label={btnLabel}
+                    label={'CHANGE'}
                     onTouchTap={this.handleTap.bind(this)}
+                    disabled={inputDisabled}
                 />
             </div>
         );

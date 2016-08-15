@@ -11,7 +11,7 @@ packager(
         version: '1.2.8',  // electron のバージョン
         //icon: './app.icns', // アイコン
 
-        //'app-bundle-id': 'jp.phi.electron-app', // ドメイン
+        //'app-bundle-id': '', // ドメイン
         'app-version': config.version,          // バージョン
 
         overwrite: true,  // 上書き

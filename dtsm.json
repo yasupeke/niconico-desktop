@@ -41,6 +41,9 @@
       "repo": "https://gist.github.com/yasupeke/2e4c993841f435fa2f510955f557a4f3",
       "ref": "cdaff0c47fc721f42c4acd98397fa855be37f5c5",
       "path": "niconico-desktop.d.ts"
+    },
+    "electron-json-storage/electron-json-storage.d.ts": {
+      "ref": "44592d79b86a2b940212511775d92b437e54ceea"
     }
   }
 }

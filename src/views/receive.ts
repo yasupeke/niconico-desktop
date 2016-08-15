@@ -3,7 +3,9 @@ import * as SocketIO from 'socket.io-client';
 import { getUrlParam } from '../util/url';
 import { ReceiverAction } from '../constants/events';
 
-const socket = SocketIO('http://localhost:3000');
+const host = decodeURIComponent(getUrlParam('host'));
+const roomId = getUrlParam('roomid');
+const socket = SocketIO(host);
 const body = <HTMLBodyElement>document.querySelector('body');
 const width = body.clientWidth;
 const height = body.clientHeight;
@@ -11,7 +13,6 @@ const canvas = <HTMLCanvasElement>document.querySelector('canvas');
 canvas.setAttribute('width', width + '');
 canvas.setAttribute('height', height + '');
 const stage = new createjs.Stage(canvas);
-const roomId = getUrlParam('roomid');
 
 function writeText(comment: NicoNicoDesktop.IComment): void {
     const text = new createjs.Text(comment.comment, `bold ${comment.size}px Arial`, comment.color);
@@ -45,7 +46,6 @@ socket.on('join', (roomId: string) => {
     writeText({
         roomId: null,
         comment: `Room ID: ${roomId}`,
-        image: null,
         color: '#000000',
         shadowColor: '#ffffff',
         size: 80,
